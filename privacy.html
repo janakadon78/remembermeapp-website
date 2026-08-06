@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Remember Me</title>
+<meta name="description" content="How the Remember Me app collects, uses, encrypts, and protects your data.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M100 24 C 90 12, 64 12, 56 30 C 34 28, 24 52, 33 70 C 16 80, 15 110, 31 122 C 20 142, 33 168, 60 172 C 72 186, 92 186, 100 174 C 108 186, 128 186, 140 172 C 167 168, 180 142, 169 122 C 185 110, 184 80, 167 70 C 176 52, 166 28, 144 30 C 136 12, 110 12, 100 24 Z' fill='%2316a34a' stroke='%230b6b30' stroke-width='5' stroke-linejoin='round'/><g fill='none' stroke='%230b6b30' stroke-width='4' stroke-linecap='round'><path d='M100 30 V 172'/><path d='M56 40 q 18 12 4 26 q -16 12 2 26 q 16 12 0 28'/><path d='M34 74 q 20 8 6 24 q -14 14 6 26'/><path d='M40 128 q 18 6 8 24'/><path d='M144 40 q -18 12 -4 26 q 16 12 -2 26 q -16 12 0 28'/><path d='M166 74 q -20 8 -6 24 q 14 14 -6 26'/><path d='M160 128 q -18 6 -8 24'/></g></svg>">
+<style>
+  :root{--accent:#5b6cf0;--ink:#1a1c2b;--muted:#5c6076;--border:#e5e7f2;--soft:#f5f6fc}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.7;background:#fff}
+  a{color:var(--accent)}
+  header.nav{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(12px)}
+  .nav-inner{max-width:820px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink);text-decoration:none}
+  .logo{width:32px;height:32px;border-radius:9px;background:#fff;border:1px solid var(--border);display:grid;place-items:center}
+  .brain{width:72%;height:72%;display:block}
+  main{max-width:760px;margin:0 auto;padding:56px 24px 80px}
+  h1{font-size:2.2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+  .updated{color:var(--muted);font-size:.9rem;margin-bottom:36px}
+  h2{font-size:1.3rem;margin:34px 0 10px;font-weight:700}
+  p{margin-bottom:14px;color:#33364a}
+  ul{margin:0 0 16px 22px;color:#33364a}
+  li{margin-bottom:7px}
+  .callout{background:var(--soft);border:1px solid var(--border);border-radius:12px;padding:18px 22px;margin:20px 0}
+  .back{display:inline-block;margin-bottom:28px;font-weight:600;text-decoration:none}
+  footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.85rem;padding:28px}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="logo"><img class="brain" src="assets/brain-green.svg" alt="Remember Me brain logo"></span> Remember Me</a>
+    <a href="index.html" style="color:var(--muted);text-decoration:none;font-weight:500">← Back to home</a>
+  </div>
+</header>
+
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: August 6, 2026</p>
+
+  <p>Remember Me ("the app", "we", "us") is a personal memory assistant for iOS. This policy explains what data the app handles, how it is protected, and the choices you have. We designed the app to keep your personal facts private by default.</p>
+
+  <div class="callout">
+    <strong>In short:</strong> Your memories are encrypted on your device with a key that never leaves your Keychain. We don't sell your data or use it for advertising. Recall answers are composed by an AI service using only a bounded set of your recent facts.
+  </div>
+
+  <h2>1. Information we handle</h2>
+  <ul>
+    <li><strong>Memories you create.</strong> The facts, notes, and any images you save. These are stored encrypted on your device.</li>
+    <li><strong>Account information.</strong> If you create an account, your email address is used to authenticate you, verify your account, and enable optional backup and sync.</li>
+    <li><strong>Reminders and events.</strong> Titles, dates, and lead times you set. If you choose to mirror an event, it is written to your device's Calendar via Apple's EventKit.</li>
+    <li><strong>Voice input.</strong> If you use dictation, speech is processed to convert it to text so it can be saved or used as a question.</li>
+  </ul>
+
+  <h2>2. How your memories are protected</h2>
+  <p>Each memory is encrypted using AES-GCM. The encryption key is generated on your device and stored in the iOS Keychain; it is not transmitted to us. Encrypted memories are kept in the app's private storage. Only the facts you explicitly save are persisted — your recall questions and the assistant's replies remain in the current session and are not stored as memories.</p>
+
+  <h2>3. AI-powered recall</h2>
+  <p>When you ask a question, the app assembles a bounded set of your most relevant recent facts and sends them, along with your question, to a third-party AI service (Google's Gemini, accessed through Firebase) to compose a natural-language answer. This request is used solely to generate your answer and return it to you. Please refer to Google's privacy terms for how they handle data processed through their AI services. If you never ask recall questions, no memory content is sent for AI processing.</p>
+
+  <h2>4. Backup and sync</h2>
+  <p>If you sign in and enable sync, your encrypted memories can be backed up so they are available across your devices. Data in transit is protected using standard transport encryption. You can disable sync or delete your account to stop this.</p>
+
+  <h2>5. Device permissions</h2>
+  <ul>
+    <li><strong>Face ID / Touch ID.</strong> Used to lock the app so only you can open it. Biometric data never leaves your device and is handled entirely by iOS.</li>
+    <li><strong>Microphone &amp; Speech Recognition.</strong> Used only when you choose voice input.</li>
+    <li><strong>Photos.</strong> Accessed only when you attach an image to a memory.</li>
+    <li><strong>Calendar.</strong> Accessed only if you choose to mirror a reminder to your Calendar.</li>
+  </ul>
+
+  <h2>6. What we do not do</h2>
+  <ul>
+    <li>We do not sell or rent your personal data.</li>
+    <li>We do not use your memories for advertising or profiling.</li>
+    <li>We do not share your data with third parties except the AI and infrastructure providers strictly needed to deliver the features described above.</li>
+  </ul>
+
+  <h2>7. Data retention and deletion</h2>
+  <p>Memories remain on your device until you delete them. Deleting a memory removes it from your device and, if sync is enabled, from your backup. You may delete your account at any time, which removes your synced data. Uninstalling the app removes locally stored memories from that device.</p>
+
+  <h2>8. Children's privacy</h2>
+  <p>Remember Me is not directed to children under 13, and we do not knowingly collect personal information from them.</p>
+
+  <h2>9. Changes to this policy</h2>
+  <p>We may update this policy from time to time. Material changes will be reflected here with a new "Last updated" date.</p>
+
+  <h2>10. Contact</h2>
+  <p>Questions about this policy or your data? Email us at <a href="mailto:support@remembermeapp.online">support@remembermeapp.online</a>.</p>
+</main>
+
+<footer>© 2026 Remember Me · <a href="index.html">Home</a> · <a href="guide.html">Guide</a> · <a href="terms.html">Terms</a></footer>
+
+</body>
+</html>

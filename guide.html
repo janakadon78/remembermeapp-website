@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Guide — How to use Remember Me</title>
+<meta name="description" content="A complete, step-by-step guide to using the Remember Me app: setup, saving and recalling memories, voice, photos, reminders, permissions, and troubleshooting.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M100 24 C 90 12, 64 12, 56 30 C 34 28, 24 52, 33 70 C 16 80, 15 110, 31 122 C 20 142, 33 168, 60 172 C 72 186, 92 186, 100 174 C 108 186, 128 186, 140 172 C 167 168, 180 142, 169 122 C 185 110, 184 80, 167 70 C 176 52, 166 28, 144 30 C 136 12, 110 12, 100 24 Z' fill='%2316a34a' stroke='%230b6b30' stroke-width='5' stroke-linejoin='round'/><g fill='none' stroke='%230b6b30' stroke-width='4' stroke-linecap='round'><path d='M100 30 V 172'/><path d='M56 40 q 18 12 4 26 q -16 12 2 26 q 16 12 0 28'/><path d='M34 74 q 20 8 6 24 q -14 14 6 26'/><path d='M40 128 q 18 6 8 24'/><path d='M144 40 q -18 12 -4 26 q 16 12 -2 26 q -16 12 0 28'/><path d='M166 74 q -20 8 -6 24 q 14 14 -6 26'/><path d='M160 128 q -18 6 -8 24'/></g></svg>">
+<style>
+  :root{--accent:#5b6cf0;--green:#16a34a;--ink:#1a1c2b;--muted:#5c6076;--border:#e5e7f2;--soft:#f5f6fc}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.7;background:#fff}
+  a{color:var(--accent)}
+  header.nav{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);z-index:20}
+  .nav-inner{max-width:860px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink);text-decoration:none}
+  .logo{width:32px;height:32px;border-radius:9px;background:#fff;border:1px solid var(--border);display:grid;place-items:center}
+  .brain{width:72%;height:72%;display:block}
+  main{max-width:820px;margin:0 auto;padding:52px 24px 80px}
+  h1{font-size:2.3rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+  .updated{color:var(--muted);font-size:.9rem;margin-bottom:32px}
+  h2{font-size:1.5rem;margin:44px 0 8px;font-weight:800;letter-spacing:-.01em;scroll-margin-top:80px}
+  h3{font-size:1.12rem;margin:24px 0 6px;font-weight:700}
+  p{margin-bottom:14px;color:#33364a}
+  ul,ol{margin:0 0 16px 22px;color:#33364a}
+  li{margin-bottom:8px}
+  .lead{font-size:1.12rem;color:var(--muted);margin-bottom:8px}
+  .toc{background:var(--soft);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin:28px 0 8px}
+  .toc h4{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .toc ol{margin:0 0 0 20px;columns:2;column-gap:28px}
+  .toc li{margin-bottom:6px}
+  @media(max-width:600px){.toc ol{columns:1}}
+  .callout{background:#eef6ff;border:1px solid #cfe4fb;border-left:4px solid var(--accent);border-radius:12px;padding:16px 20px;margin:18px 0}
+  .callout.green{background:#eafaf0;border-color:#bfe9cf;border-left-color:var(--green)}
+  .callout.warn{background:#fff7ed;border-color:#fadcb0;border-left-color:#e08a1e}
+  .callout strong{color:var(--ink)}
+  .steps{counter-reset:s;list-style:none;margin-left:0}
+  .steps>li{position:relative;padding-left:44px;margin-bottom:16px}
+  .steps>li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:-2px;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;display:grid;place-items:center;font-size:.9rem}
+  .chip{display:inline-block;background:var(--soft);border:1px solid var(--border);border-radius:7px;padding:1px 8px;font-size:.86em;font-weight:600;white-space:nowrap}
+  .divider{height:1px;background:var(--border);margin:8px 0}
+  table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:.95rem}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+  th{background:var(--soft);font-weight:700}
+  footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.85rem;padding:28px}
+  footer a{color:var(--muted)}
+  .top-link{display:inline-block;margin-top:10px;font-size:.85rem}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="logo"><img class="brain" src="assets/brain-green.svg" alt="Remember Me brain logo"></span> Remember Me</a>
+    <a href="index.html" style="color:var(--muted);text-decoration:none;font-weight:500">← Back to home</a>
+  </div>
+</header>
+
+<main id="top">
+  <h1>User Guide</h1>
+  <p class="updated">Everything you need to use Remember Me · Updated August 6, 2026</p>
+  <p class="lead">Remember Me stores the everyday facts you can't afford to forget — where you left your keys, your parking spot, a Wi-Fi password — and gives them right back when you ask, by voice or text. This guide walks through every screen and feature.</p>
+
+  <div class="toc">
+    <h4>What's inside</h4>
+    <ol>
+      <li><a href="#requirements">Before you start</a></li>
+      <li><a href="#account">Creating your account</a></li>
+      <li><a href="#verify">Verifying your email</a></li>
+      <li><a href="#unlock">Unlocking with Face ID</a></li>
+      <li><a href="#chat">The chat screen</a></li>
+      <li><a href="#saving">Saving a memory</a></li>
+      <li><a href="#recalling">Recalling a memory</a></li>
+      <li><a href="#voice">Using your voice</a></li>
+      <li><a href="#photos">Adding photos</a></li>
+      <li><a href="#editing">Editing &amp; deleting</a></li>
+      <li><a href="#memories">The Memories screen</a></li>
+      <li><a href="#reminders">Reminders &amp; events</a></li>
+      <li><a href="#import">Importing calendar events</a></li>
+      <li><a href="#appearance">Appearance &amp; sign out</a></li>
+      <li><a href="#permissions">Permissions reference</a></li>
+      <li><a href="#privacy">Your privacy</a></li>
+      <li><a href="#troubleshooting">Troubleshooting</a></li>
+    </ol>
+  </div>
+
+  <h2 id="requirements">1. Before you start</h2>
+  <p>Remember Me runs on iPhone. To get the most out of it, have the following ready:</p>
+  <ul>
+    <li>An iPhone running <strong>iOS 17 or later</strong>.</li>
+    <li>An <strong>internet connection</strong> — needed to sign in and to compose recall answers. Saving memories and browsing them works offline.</li>
+    <li>An <strong>email address</strong>, or a <strong>Google account</strong>, to register.</li>
+    <li><strong>Face ID or Touch ID</strong> (or a device passcode) set up on your iPhone, so the app can lock itself to you.</li>
+  </ul>
+  <div class="callout warn"><strong>Note:</strong> Voice dictation needs a real device — it isn't available in the iOS Simulator. If dictation is unavailable, you can always type instead.</div>
+
+  <h2 id="account">2. Creating your account</h2>
+  <p>When you first open the app you'll see a welcome screen. Tap <span class="chip">Get Started</span>, then either create an account with email or continue with Google.</p>
+  <h3>Sign up with email</h3>
+  <ol class="steps">
+    <li>On the sign-in screen, tap <span class="chip">Create an account</span>.</li>
+    <li>Enter your <strong>First name</strong> (required), <strong>Last name</strong>, and <strong>Email</strong>.</li>
+    <li>Choose a <strong>Password</strong> and re-enter it under <strong>Confirm Password</strong>. Tap the eye icon to show or hide what you type.</li>
+    <li>Tap <span class="chip">Sign Up</span>. If the two passwords don't match, or your first name is blank, the app will tell you so you can fix it.</li>
+  </ol>
+  <h3>Continue with Google</h3>
+  <p>On the sign-in screen, tap <span class="chip">Continue with Google</span> and choose your Google account. This skips the separate email-verification step.</p>
+
+  <h2 id="verify">3. Verifying your email</h2>
+  <p>If you signed up with email, Remember Me sends a verification link to your inbox before it lets you in. This confirms the account is yours.</p>
+  <ol class="steps">
+    <li>Open your email and tap the verification link. <em>It can take a few minutes to arrive — check your spam folder if you don't see it.</em></li>
+    <li>Return to the app and tap <span class="chip">I've Verified My Email</span>.</li>
+    <li>Didn't get it? Tap <span class="chip">Resend Verification Email</span>. To use a different account, tap <span class="chip">Back to Sign In</span>.</li>
+  </ol>
+
+  <h2 id="unlock">4. Unlocking with Face ID</h2>
+  <p>Remember Me keeps your memories behind your device biometrics. Every time you open the app — and every time you return to it after switching away — it asks for <strong>Face ID</strong> or <strong>Touch ID</strong> (falling back to your device passcode). If a phone is lost or borrowed, your memories stay locked.</p>
+  <div class="callout green"><strong>Good to know:</strong> The app re-locks automatically whenever it goes to the background, so you never have to remember to lock it yourself.</div>
+
+  <h2 id="chat">5. The chat screen</h2>
+  <p>The heart of the app is a simple chat. You talk to your memory the way you'd text a friend. Across the top you'll find:</p>
+  <table>
+    <tr><th>Control</th><th>What it does</th></tr>
+    <tr><td><strong>List</strong> icon (top left)</td><td>Opens the <a href="#memories">Memories</a> screen to browse everything you've saved.</td></tr>
+    <tr><td><strong>Half-circle</strong> icon</td><td>Appearance menu — switch between <strong>System</strong>, <strong>Light</strong>, and <strong>Dark</strong>.</td></tr>
+    <tr><td><strong>Bell</strong> icon</td><td>Opens <a href="#reminders">Reminders</a> to add and manage reminders.</td></tr>
+    <tr><td><strong>Sign Out</strong> (top right)</td><td>Signs you out and returns to the sign-in screen.</td></tr>
+  </table>
+  <p>The first time you open the chat, you'll see a friendly greeting — <em>"Hi! I'm your memory."</em> — with a few tappable examples like <em>"My keys are on the kitchen table"</em> or <em>"Where did I put my passport?"</em> Tap one to drop it straight into the message box and see how it works.</p>
+
+  <h2 id="saving">6. Saving a memory</h2>
+  <p>To store something, just state it as a fact in the <span class="chip">Type a message…</span> box and send it with the <strong>paper-plane</strong> button.</p>
+  <ul>
+    <li>"My passport is in the top drawer of the desk."</li>
+    <li>"Parking spot is level 2, B12."</li>
+    <li>"The Wi-Fi password is sunflower-42."</li>
+  </ul>
+  <p>Remember Me decides <em>on your device</em> whether you're telling it something (store) or asking something (recall). When you save a fact, it confirms right away — something like <em>"Got it — memory saved. You can recall it anytime."</em> Because that decision happens on-device, the confirmation always matches what was actually stored.</p>
+
+  <h2 id="recalling">7. Recalling a memory</h2>
+  <p>When you need something back, ask a natural question and send it:</p>
+  <ul>
+    <li>"Where's my passport?"</li>
+    <li>"What level did I park on?"</li>
+    <li>"What's the Wi-Fi password?"</li>
+  </ul>
+  <p>You'll briefly see <em>"Thinking…"</em> while the app finds the most relevant facts you've saved and composes a short, warm answer. You don't have to phrase questions exactly the way you saved them — asking about your "travel documents" can still surface the passport you filed away.</p>
+  <div class="callout"><strong>Tip:</strong> The more specific your saved facts, the sharper the recall. "Spare key is under the blue plant pot by the back door" beats "spare key outside."</div>
+
+  <h2 id="voice">8. Using your voice</h2>
+  <p>You can speak instead of type, and have answers read back to you.</p>
+  <ul>
+    <li><strong>Dictate:</strong> Tap the <strong>microphone</strong> button and start talking. You'll see a <em>"Listening…"</em> indicator; tap the button again (now a stop icon) to finish. Your words appear in the message box, ready to send.</li>
+    <li><strong>Spoken replies:</strong> Recall answers can be read aloud automatically. To silence the current spoken reply, tap the <strong>speaker</strong> (mute) button.</li>
+  </ul>
+  <p>The first time you use voice, iOS asks permission for the microphone and speech recognition — tap <strong>Allow</strong>. See the <a href="#permissions">permissions reference</a> if you need to change this later.</p>
+
+  <h2 id="photos">9. Adding photos</h2>
+  <p>Some memories are easier to keep as pictures — a parking level sign, a serial-number label, where you left something. You can attach up to <strong>five photos</strong> to a memory.</p>
+  <ul>
+    <li>Tap the <strong>camera</strong> button to take a new photo (on devices with a camera), or the <strong>photo</strong> button to pick from your library.</li>
+    <li>Selected photos appear as thumbnails above the message box. Tap the small <strong>✕</strong> on a thumbnail to remove it before sending.</li>
+    <li>If you send a message that sounds visual, the app may ask <em>"Add Photos?"</em> — choose <span class="chip">Yes</span> to attach some, or <span class="chip">No, send text only</span>.</li>
+  </ul>
+
+  <h2 id="editing">10. Editing &amp; deleting a memory from chat</h2>
+  <p>Made a typo, or something changed? <strong>Press and hold</strong> any of your messages in the chat to bring up a menu:</p>
+  <ul>
+    <li><span class="chip">Edit</span> — opens an <em>Edit Memory</em> box. Change the text and tap <strong>Save</strong>; your update syncs to your saved memories.</li>
+    <li><span class="chip">Delete</span> — removes that memory.</li>
+  </ul>
+
+  <h2 id="memories">11. The Memories screen</h2>
+  <p>Tap the <strong>list</strong> icon at the top left of the chat to see everything you've stored, newest first. Each row shows the fact, its date (and an "edited" mark if you've changed it), and a thumbnail if it has a photo.</p>
+  <ul>
+    <li><strong>Search:</strong> Use the search bar to filter by keyword.</li>
+    <li><strong>Open a memory:</strong> Tap any row to see the full text, any photos at full size, and when it was created or edited.</li>
+    <li><strong>Edit:</strong> In a memory's detail view, tap <span class="chip">Edit</span>, change the text, and tap <span class="chip">Save</span>.</li>
+    <li><strong>Add a reminder:</strong> Tap <span class="chip">Add reminder</span> to turn that memory into a reminder (defaults to tomorrow — adjust as needed).</li>
+    <li><strong>Delete:</strong> Swipe a row left, or open the memory and tap <span class="chip">Delete Memory</span> and confirm.</li>
+  </ul>
+  <p>The whole app is already locked behind Face ID, so this screen doesn't ask you to authenticate again. Tap <span class="chip">Done</span> to return to the chat.</p>
+
+  <h2 id="reminders">12. Reminders &amp; events</h2>
+  <p>Tap the <strong>bell</strong> icon to open Reminders. You can view them as a <strong>Calendar</strong> or a <strong>List</strong> using the toggle at the top.</p>
+  <h3>Create a reminder</h3>
+  <ol class="steps">
+    <li>Tap the <span class="chip">+</span> button and choose <span class="chip">New reminder</span> (or tap a day in the calendar).</li>
+    <li>Enter a <strong>Title</strong> and, optionally, <strong>Notes</strong>.</li>
+    <li>Pick the <strong>Date &amp; time</strong> of the event.</li>
+    <li>Under <strong>Notify me before</strong>, switch on any presets — <strong>1 week</strong>, <strong>1 day</strong>, <strong>1 hour</strong>, or <strong>15 minutes</strong> before.</li>
+    <li>Need a different lead time? Under <strong>Custom lead time</strong>, set a number (1–60) and a unit (minutes, hours, days, or weeks) and tap <span class="chip">Add</span>. Remove a custom entry with the minus button.</li>
+    <li>Tap <span class="chip">Save</span>. You'll get an iPhone notification at each lead time you chose.</li>
+  </ol>
+  <div class="callout"><strong>Reminders from memories:</strong> A reminder created from a saved memory shows a <strong>link</strong> icon; a standalone reminder shows a <strong>bell</strong>. Tap any reminder to edit it later.</div>
+  <p>The first time you save a reminder, iOS asks permission to send notifications — tap <strong>Allow</strong>, or you won't receive alerts.</p>
+
+  <h2 id="import">13. Importing calendar events</h2>
+  <p>You can pull events you already have on your iPhone — including <strong>Outlook / Exchange</strong> accounts you've added in iOS Settings — into Remember Me so they get reminders too.</p>
+  <ol class="steps">
+    <li>In Reminders, tap <span class="chip">+</span> and choose <span class="chip">Import iPhone &amp; Outlook events</span>.</li>
+    <li>Grant <strong>Calendar</strong> access when asked.</li>
+    <li>Upcoming events are imported and reminders are scheduled. Events that have no alarm of their own default to a reminder <strong>1 hour before</strong>.</li>
+  </ol>
+  <div class="callout warn"><strong>If import does nothing:</strong> Calendar access may be off. Turn it on in <strong>Settings › Privacy &amp; Security › Calendars</strong> and try again. If there are simply no new upcoming events, the app will tell you.</div>
+
+  <h2 id="appearance">14. Appearance &amp; signing out</h2>
+  <p><strong>Appearance:</strong> Tap the half-circle icon in the chat header and choose <strong>System</strong> (follow your phone), <strong>Light</strong>, or <strong>Dark</strong>. Your choice is remembered.</p>
+  <p><strong>Sign out:</strong> Tap <span class="chip">Sign Out</span> at the top right of the chat. Your saved memories remain safely stored for the next time you sign in.</p>
+
+  <h2 id="permissions">15. Permissions reference</h2>
+  <p>Remember Me only asks for a permission when you first use the feature that needs it. You can review or change any of these anytime in the iOS <strong>Settings</strong> app under Remember Me, or under <strong>Privacy &amp; Security</strong>.</p>
+  <table>
+    <tr><th>Permission</th><th>Used for</th><th>Needed?</th></tr>
+    <tr><td>Face ID / Touch ID</td><td>Locking the app to you</td><td>Recommended</td></tr>
+    <tr><td>Microphone &amp; Speech</td><td>Voice dictation</td><td>Only for voice</td></tr>
+    <tr><td>Camera</td><td>Taking a photo for a memory</td><td>Only for camera</td></tr>
+    <tr><td>Photos</td><td>Attaching pictures from your library</td><td>Only for photos</td></tr>
+    <tr><td>Notifications</td><td>Reminder alerts</td><td>For reminders</td></tr>
+    <tr><td>Calendar</td><td>Importing and mirroring events</td><td>For calendar import</td></tr>
+  </table>
+
+  <h2 id="privacy">16. Your privacy</h2>
+  <p>Your memories are encrypted on your device with AES-GCM, using a key held in your device Keychain, and stored in the app's private storage. Only the facts you save are kept; your recall questions and the assistant's replies stay in the current session. When you ask a question, a bounded set of your most relevant recent facts is sent to the AI service to compose the answer. Full details are in the <a href="privacy.html">Privacy Policy</a>.</p>
+
+  <h2 id="troubleshooting">17. Troubleshooting</h2>
+  <h3>I didn't get my verification email</h3>
+  <p>Wait a few minutes and check your spam or junk folder. Still nothing? Tap <span class="chip">Resend Verification Email</span> on the verification screen, and confirm your address is spelled correctly.</p>
+  <h3>Voice / dictation isn't working</h3>
+  <p>Make sure you're on a real iPhone (not the Simulator) and that Microphone and Speech Recognition are allowed in <strong>Settings › Remember Me</strong>. Type your memory in the meantime.</p>
+  <h3>I'm not getting reminder notifications</h3>
+  <p>Check that Notifications are enabled for Remember Me in <strong>Settings › Notifications</strong>, and confirm you switched on at least one lead time when creating the reminder.</p>
+  <h3>Calendar import isn't finding events</h3>
+  <p>Turn on Calendar access in <strong>Settings › Privacy &amp; Security › Calendars</strong>. Import only pulls <em>upcoming</em> events, so past events won't appear.</p>
+  <h3>Recall says it doesn't know something</h3>
+  <p>Confirm the fact was actually saved (check the <a href="#memories">Memories</a> screen). Recall needs an internet connection to compose answers — if you're offline, you can still browse your saved memories directly.</p>
+  <h3>A recall answer looks wrong</h3>
+  <p>AI answers can occasionally be off. Open the <a href="#memories">Memories</a> screen to see the exact fact you saved, and edit it if it needs updating. Don't rely on recall alone for anything safety-critical.</p>
+  <h3>Still stuck?</h3>
+  <p>Email us at <a href="mailto:support@remembermeapp.online">support@remembermeapp.online</a> with your iPhone model and iOS version and we'll help.</p>
+
+  <a class="top-link" href="#top">↑ Back to top</a>
+</main>
+
+<footer>© 2026 Remember Me · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
+
+</body>
+</html>

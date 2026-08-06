@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remember Me — Your private memory, always within reach</title>
+<meta name="description" content="Remember Me is a private, encrypted iOS app that stores everyday facts by voice or text and recalls them instantly. Your keys, passwords, parking spot — remembered.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><path d='M100 24 C 90 12, 64 12, 56 30 C 34 28, 24 52, 33 70 C 16 80, 15 110, 31 122 C 20 142, 33 168, 60 172 C 72 186, 92 186, 100 174 C 108 186, 128 186, 140 172 C 167 168, 180 142, 169 122 C 185 110, 184 80, 167 70 C 176 52, 166 28, 144 30 C 136 12, 110 12, 100 24 Z' fill='%2316a34a' stroke='%230b6b30' stroke-width='5' stroke-linejoin='round'/><g fill='none' stroke='%230b6b30' stroke-width='4' stroke-linecap='round'><path d='M100 30 V 172'/><path d='M56 40 q 18 12 4 26 q -16 12 2 26 q 16 12 0 28'/><path d='M34 74 q 20 8 6 24 q -14 14 6 26'/><path d='M40 128 q 18 6 8 24'/><path d='M144 40 q -18 12 -4 26 q 16 12 -2 26 q -16 12 0 28'/><path d='M166 74 q -20 8 -6 24 q 14 14 -6 26'/><path d='M160 128 q -18 6 -8 24'/></g></svg>">
+<style>
+  :root{
+    --accent:#5b6cf0;
+    --accent-dark:#4553d6;
+    --ink:#1a1c2b;
+    --muted:#5c6076;
+    --bg:#ffffff;
+    --soft:#f5f6fc;
+    --soft2:#eef0fb;
+    --border:#e5e7f2;
+    --radius:16px;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:80px 0}
+
+  /* Nav */
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.05rem;color:var(--ink)}
+  .brand:hover{text-decoration:none}
+  .logo{width:34px;height:34px;border-radius:9px;background:#ffffff;border:1px solid var(--border);display:grid;place-items:center;font-size:18px}
+  .brain{width:72%;height:72%;display:block}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--muted);font-size:.95rem;font-weight:500}
+  .nav-links a:hover{color:var(--ink);text-decoration:none}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:11px 22px;border-radius:12px;font-weight:600;font-size:.95rem;transition:background .15s}
+  .btn:hover{background:var(--accent-dark);text-decoration:none}
+  .btn.ghost{background:transparent;color:var(--accent);border:1.5px solid var(--border)}
+  .btn.ghost:hover{border-color:var(--accent);background:var(--soft)}
+  @media(max-width:720px){.nav-links a:not(.btn){display:none}}
+
+  /* Hero */
+  .hero{background:linear-gradient(180deg,#fff,var(--soft));text-align:center;padding-top:72px}
+  .hero .icon-badge{width:82px;height:82px;border-radius:24px;background:#ffffff;border:1px solid var(--border);display:inline-grid;place-items:center;font-size:42px;margin-bottom:26px;box-shadow:0 12px 30px rgba(22,163,74,.22)}
+  .hero h1{font-size:3rem;line-height:1.1;letter-spacing:-.02em;margin-bottom:18px;font-weight:800}
+  .hero p.sub{font-size:1.2rem;color:var(--muted);max-width:640px;margin:0 auto 32px}
+  .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .badge-row{margin-top:22px;font-size:.85rem;color:var(--muted);display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+  .badge-row span{display:inline-flex;align-items:center;gap:6px}
+  @media(max-width:640px){.hero h1{font-size:2.1rem}}
+
+  /* Phone mockup strip */
+  .demo{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:52px}
+  .chat{max-width:360px;width:100%;background:#fff;border:1px solid var(--border);border-radius:22px;padding:20px;box-shadow:0 20px 50px rgba(26,28,43,.08);text-align:left}
+  .bubble{padding:11px 15px;border-radius:16px;margin:8px 0;font-size:.95rem;max-width:80%}
+  .bubble.me{background:var(--accent);color:#fff;margin-left:auto;border-bottom-right-radius:5px}
+  .bubble.ai{background:var(--soft2);color:var(--ink);border-bottom-left-radius:5px}
+
+  /* Sections */
+  h2.section-title{font-size:2rem;font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:12px}
+  p.section-lead{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 48px;font-size:1.05rem}
+  .alt{background:var(--soft)}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:820px){.grid{grid-template-columns:1fr}}
+  .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:28px}
+  .card .ic{font-size:26px;margin-bottom:14px;display:block}
+  .card h3{font-size:1.15rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.96rem}
+
+  /* Steps */
+  .steps{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+  .step{display:flex;gap:20px;align-items:flex-start;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:24px}
+  .step .num{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-weight:700}
+  .step h3{font-size:1.1rem;margin-bottom:4px}
+  .step p{color:var(--muted);font-size:.96rem}
+
+  /* Privacy highlights */
+  .priv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:820px;margin:0 auto}
+  @media(max-width:720px){.priv-grid{grid-template-columns:1fr}}
+  .priv{display:flex;gap:14px;align-items:flex-start}
+  .priv .ic{font-size:22px;flex-shrink:0}
+  .priv h3{font-size:1.05rem;margin-bottom:3px}
+  .priv p{color:var(--muted);font-size:.94rem}
+
+  /* FAQ */
+  .faq{max-width:760px;margin:0 auto}
+  details{background:#fff;border:1px solid var(--border);border-radius:12px;padding:0 22px;margin-bottom:12px}
+  details summary{cursor:pointer;font-weight:600;padding:18px 0;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";font-size:1.4rem;color:var(--accent);font-weight:400}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);padding:0 0 20px;font-size:.97rem}
+
+  /* Contact */
+  .contact-box{max-width:560px;margin:0 auto;text-align:center;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:44px 32px}
+  .contact-box .mail{font-size:1.3rem;font-weight:700;margin:14px 0 8px}
+
+  /* Footer */
+  footer{background:var(--ink);color:#c9cbe0;padding:44px 0;font-size:.9rem}
+  .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  footer a{color:#c9cbe0}
+  footer .brand{color:#fff}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="logo"><img class="brain" src="assets/brain-green.svg" alt="Remember Me brain logo"></span> Remember Me</a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#start">Getting Started</a>
+      <a href="guide.html">User Guide</a>
+      <a href="#privacy">Privacy</a>
+      <a href="#faq">FAQ</a>
+      <a href="terms.html">Terms</a>
+      <a class="btn" href="#start">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+<section class="hero">
+  <div class="wrap">
+    <span class="icon-badge"><img class="brain" src="assets/brain-green.svg" alt="Remember Me brain logo"></span>
+    <h1>Your private memory,<br>always within reach.</h1>
+    <p class="sub">Remember Me stores the little things you can't afford to forget — where you left your keys, your parking spot, the Wi-Fi password — and hands them right back when you ask. Just speak or type.</p>
+    <div class="cta">
+      <a class="btn" href="#start">Get Started</a>
+      <a class="btn ghost" href="#features">See how it works</a>
+    </div>
+    <div class="badge-row">
+      <span>🔒 End-to-end encrypted</span>
+      <span>📱 On-device storage</span>
+      <span>👤 Face ID protected</span>
+    </div>
+
+    <div class="demo">
+      <div class="chat">
+        <div class="bubble me">My passport is in the top drawer of the desk</div>
+        <div class="bubble ai">Got it — memory saved. You can recall it anytime.</div>
+        <div class="bubble me">Where's my passport?</div>
+        <div class="bubble ai">It's in the top drawer of your desk.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap">
+    <h2 class="section-title">Everything you need to never forget</h2>
+    <p class="section-lead">A memory assistant that's fast, private, and genuinely helpful in everyday moments.</p>
+    <div class="grid">
+      <div class="card"><span class="ic">🗣️</span><h3>Speak or type</h3><p>Tell it a fact in plain language, or dictate hands-free. Remember Me understands the difference between storing something and asking for it.</p></div>
+      <div class="card"><span class="ic">⚡</span><h3>Instant recall</h3><p>Ask a natural question and get a short, warm answer drawn from what you've saved — powered by on-device matching and AI.</p></div>
+      <div class="card"><span class="ic">🖼️</span><h3>Remember with photos</h3><p>Attach an image to a memory — a parking level, a serial number, a label — and recall it visually later.</p></div>
+      <div class="card"><span class="ic">⏰</span><h3>Reminders &amp; events</h3><p>Turn a memory into a reminder with flexible lead times, and mirror events to your iPhone Calendar so nothing slips.</p></div>
+      <div class="card"><span class="ic">🔐</span><h3>Locked to you</h3><p>The app re-locks behind Face ID or Touch ID every time it goes to the background. Your memories stay yours.</p></div>
+      <div class="card"><span class="ic">☁️</span><h3>Optional sync</h3><p>Sign in to keep your encrypted memories backed up and available across your devices.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GETTING STARTED -->
+<section id="start" class="alt">
+  <div class="wrap">
+    <h2 class="section-title">Getting started</h2>
+    <p class="section-lead">Up and running in under a minute.</p>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><div><h3>Create your account</h3><p>Sign up with your email and verify it. This protects your memories and enables backup across devices.</p></div></div>
+      <div class="step"><div class="num">2</div><div><h3>Unlock with Face ID</h3><p>Set up Face ID or Touch ID when prompted. The app locks automatically whenever you switch away, so only you can open it.</p></div></div>
+      <div class="step"><div class="num">3</div><div><h3>Save your first memory</h3><p>Type or tap the mic and say a fact — "My spare key is under the blue pot." You'll get an instant confirmation that it's stored.</p></div></div>
+      <div class="step"><div class="num">4</div><div><h3>Ask anytime</h3><p>Whenever you need it, just ask — "Where's my spare key?" Remember Me answers from your saved facts in a sentence.</p></div></div>
+      <div class="step"><div class="num">5</div><div><h3>Add reminders (optional)</h3><p>Link a memory to a date and choose lead times like "1 day before." Mirror it to your Calendar to get system notifications too.</p></div></div>
+    </div>
+    <p style="text-align:center;margin-top:32px"><a class="btn" href="guide.html">Read the full User Guide →</a></p>
+  </div>
+</section>
+
+<!-- PRIVACY -->
+<section id="privacy">
+  <div class="wrap">
+    <h2 class="section-title">Private by design</h2>
+    <p class="section-lead">Remember Me is built so your personal facts stay personal. Here's exactly how.</p>
+    <div class="priv-grid">
+      <div class="priv"><span class="ic">🔒</span><div><h3>Encrypted on your device</h3><p>Every memory is encrypted with AES-GCM using a key held in your device's secure Keychain — never in plain text.</p></div></div>
+      <div class="priv"><span class="ic">📱</span><div><h3>Stored locally first</h3><p>Your facts live in the app's private storage on your iPhone. They aren't sold, mined, or used for advertising.</p></div></div>
+      <div class="priv"><span class="ic">🧠</span><div><h3>Only what's needed for recall</h3><p>When you ask a question, a bounded set of your recent facts is sent to the AI to compose an answer. Recall questions and AI replies aren't persisted beyond your session.</p></div></div>
+      <div class="priv"><span class="ic">👤</span><div><h3>Biometric lock</h3><p>Face ID / Touch ID gates access and the app re-locks in the background, so a borrowed or lost phone doesn't expose your memories.</p></div></div>
+    </div>
+    <p style="text-align:center;margin-top:32px"><a class="btn ghost" href="privacy.html">Read the full Privacy Policy →</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="alt">
+  <div class="wrap">
+    <h2 class="section-title">Frequently asked questions</h2>
+    <p class="section-lead">Can't find your answer? <a href="#contact">Get in touch.</a></p>
+    <div class="faq">
+      <details><summary>What kinds of things can I store?</summary><p>Anything you'd otherwise scribble on a note: where you put items, passwords and codes, parking spots, package tracking, gift ideas, a doctor's instructions. If you can say it in a sentence, Remember Me can hold onto it.</p></details>
+      <details><summary>How does it know whether I'm storing or asking?</summary><p>Remember Me decides your intent on-device. A statement ("My keys are on the table") is saved and confirmed instantly. A question ("Where are my keys?") is answered from your saved facts. That means the confirmation you see always matches what was actually stored.</p></details>
+      <details><summary>Is my data really private?</summary><p>Yes. Your memories are encrypted with AES-GCM using a key stored in the device Keychain and kept in the app's private storage. Only the facts you save are persisted; your recall questions and the assistant's replies stay in the current session. See the <a href="privacy.html">Privacy Policy</a> for details.</p></details>
+      <details><summary>Does recall work offline?</summary><p>Storing memories and on-device matching work offline. Composing a natural-language recall answer uses an AI service, which needs a connection. When you're offline you can still see your saved facts.</p></details>
+      <details><summary>Can I use voice?</summary><p>Yes. Tap the microphone to dictate a memory or ask a question hands-free, and the app can read answers back to you aloud.</p></details>
+      <details><summary>Will my memories sync across devices?</summary><p>If you sign in, your encrypted memories can be backed up and synced so they're available when you set up a new device.</p></details>
+      <details><summary>What happens if I lose my phone?</summary><p>The app is locked behind Face ID / Touch ID and re-locks whenever it's in the background, so your memories aren't accessible without your biometrics or device passcode.</p></details>
+      <details><summary>How do I delete a memory?</summary><p>Open your memories list, swipe or select the item, and delete it. Deleting removes it from your device; if sync is enabled, the change propagates to your backup.</p></details>
+      <details><summary>What does it cost?</summary><p>Pricing and availability are shown on the App Store listing. For questions, reach us at <a href="mailto:support@remembermeapp.online">support@remembermeapp.online</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <h2 class="section-title">Need a hand?</h2>
+    <p class="section-lead">We're happy to help with setup, questions, or feedback.</p>
+    <div class="contact-box">
+      <span style="font-size:34px">📮</span>
+      <div class="mail"><a href="mailto:support@remembermeapp.online">support@remembermeapp.online</a></div>
+      <p style="color:var(--muted)">Email us and we'll get back to you as soon as we can. Please include your device model and iOS version if you're reporting a problem.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a class="brand" href="#top" style="display:flex;align-items:center;gap:8px"><span class="logo" style="width:28px;height:28px;font-size:15px"><img class="brain" src="assets/brain-green.svg" alt="Remember Me brain logo"></span> Remember Me</a>
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <a href="#features">Features</a>
+      <a href="#start">Getting Started</a>
+      <a href="guide.html">User Guide</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="mailto:support@remembermeapp.online">Contact</a>
+    </div>
+    <div>© 2026 Remember Me</div>
+  </div>
+</footer>
+
+</body>
+</html>
