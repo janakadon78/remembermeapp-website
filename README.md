@@ -11,7 +11,7 @@ Marketing and support website for the **Remember Me** iOS app, served at
 | `guide.html` | Full step-by-step user guide |
 | `privacy.html` | Privacy Policy |
 | `terms.html` | Terms & Conditions |
-| `assets/brain-green.svg` | Brand logo |
+| `assets/logo.png` | Brand logo |
 
 ## Hosting
 
