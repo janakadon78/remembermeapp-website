@@ -39,6 +39,7 @@
   .steps>li{position:relative;padding-left:44px;margin-bottom:16px}
   .steps>li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:-2px;width:30px;height:30px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;display:grid;place-items:center;font-size:.9rem}
   .chip{display:inline-block;background:var(--soft);border:1px solid var(--border);border-radius:7px;padding:1px 8px;font-size:.86em;font-weight:600;white-space:nowrap}
+  .pro{display:inline-block;margin-left:8px;font-size:.6rem;font-weight:800;letter-spacing:.05em;color:#0b6b30;background:#eafaf0;border:1px solid #bfe9cf;border-radius:6px;padding:2px 7px;vertical-align:middle;text-transform:uppercase}
   .divider{height:1px;background:var(--border);margin:8px 0}
   table{width:100%;border-collapse:collapse;margin:14px 0 20px;font-size:.95rem}
   th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
@@ -59,7 +60,7 @@
 
 <main id="top">
   <h1>User Guide</h1>
-  <p class="updated">Everything you need to use Remember Me · Updated August 6, 2026</p>
+  <p class="updated">Everything you need to use Remember Me · Updated August 18, 2026</p>
   <p class="lead">Remember Me stores the everyday facts you can't afford to forget — where you left your keys, your parking spot, a Wi-Fi password — and gives them right back when you ask, by voice or text. This guide walks through every screen and feature.</p>
 
   <div class="toc">
@@ -78,6 +79,12 @@
       <li><a href="#memories">The Memories screen</a></li>
       <li><a href="#reminders">Reminders &amp; events</a></li>
       <li><a href="#import">Importing calendar events</a></li>
+      <li><a href="#scan">Scanning documents</a></li>
+      <li><a href="#organise">How memories are organised</a></li>
+      <li><a href="#location">Location reminders</a></li>
+      <li><a href="#handsfree">Siri, Shortcuts &amp; widget</a></li>
+      <li><a href="#backup">Encrypted cloud backup</a></li>
+      <li><a href="#plans">Plans: Free vs Premium</a></li>
       <li><a href="#appearance">Appearance &amp; sign out</a></li>
       <li><a href="#permissions">Permissions reference</a></li>
       <li><a href="#privacy">Your privacy</a></li>
@@ -206,11 +213,56 @@
   </ol>
   <div class="callout warn"><strong>If import does nothing:</strong> Calendar access may be off. Turn it on in <strong>Settings › Privacy &amp; Security › Calendars</strong> and try again. If there are simply no new upcoming events, the app will tell you.</div>
 
-  <h2 id="appearance">14. Appearance &amp; signing out</h2>
+  <h2 id="scan">14. Scanning documents</h2>
+  <p>Turn a piece of paper into memories in seconds. Photograph a passport, warranty, insurance letter, or bill, and Remember Me reads it, pulls out the key facts, and spots any expiry date — so you can find the details later and be reminded before they lapse.</p>
+  <ol class="steps">
+    <li>From the chat, choose the <strong>scan a document</strong> option and photograph the document.</li>
+    <li>The app extracts a short summary and the important facts. <strong>Review and tweak</strong> anything that isn't quite right.</li>
+    <li>If it found an expiry date, flip on <span class="chip">Add reminder</span> and pick how far ahead to be nudged (e.g. 1 month before).</li>
+    <li>Tap <span class="chip">Save</span> — the facts become a memory you can recall like any other.</li>
+  </ol>
+  <div class="callout"><strong>Plan limits:</strong> document scanning is available on every plan — <strong>3 scans/month</strong> on Free and <strong>50/month</strong> on Premium. See <a href="pricing.html">pricing</a>.</div>
+
+  <h2 id="organise">15. How memories are organised</h2>
+  <p>You don't have to file anything yourself. Every memory is automatically tagged with a <strong>category</strong> — People, Home, Vehicle, Work, Learning &amp; Ideas, Money &amp; Purchases, Family &amp; Life, Important / Life Admin, or Other — and a <strong>type</strong> such as Location, Password, Appointment, Expiry, Purchase, Contact, or Task. That makes browsing and searching your memories much faster, and it all happens in the background with nothing for you to set up.</p>
+
+  <h2 id="location">16. Location reminders <span class="pro">Premium</span></h2>
+  <p>Some reminders make more sense tied to a <em>place</em> than a time — "remind me at the supermarket," "grab the parcel when I get home." Attach a location to a reminder and Remember Me will nudge you the moment you arrive at, or leave, that spot.</p>
+  <ul>
+    <li>Add a place to a reminder and choose a radius around it.</li>
+    <li>Because these fire in the background, iOS asks for <strong>Location: Always</strong> permission — grant it so the reminder can reach you even when the app is closed.</li>
+  </ul>
+  <div class="callout"><strong>Premium feature.</strong> Location-based reminders are part of Premium — see <a href="pricing.html">pricing</a>.</div>
+
+  <h2 id="handsfree">17. Hands-free: Siri, Shortcuts &amp; widget</h2>
+  <p>You don't always need to open the app to use it.</p>
+  <ul>
+    <li><strong>Siri &amp; Shortcuts:</strong> say <em>"Hey Siri, remember that…"</em> and your fact is saved straight to Remember Me — no need to open it. The same "Save a Memory" action works from the Shortcuts app and Spotlight search.</li>
+    <li><strong>Home-screen widget:</strong> add the Remember Me widget for a glanceable view of your latest counts and upcoming reminders. For your privacy, the widget only ever shows non-sensitive summaries — never your actual memory text.</li>
+  </ul>
+
+  <h2 id="backup">18. Encrypted cloud backup &amp; restore <span class="pro">Premium</span></h2>
+  <p>Keep your memories safe across devices with a backup only you can unlock.</p>
+  <ol class="steps">
+    <li>Open <span class="chip">Backup &amp; Security</span> and set a <strong>passphrase</strong>. Your memories are encrypted on your device <em>before</em> anything is uploaded, so the server only ever stores unreadable ciphertext.</li>
+    <li>On a new device, sign in, open Backup &amp; Security, and enter the same passphrase to <strong>restore</strong> everything.</li>
+  </ol>
+  <div class="callout warn"><strong>Keep your passphrase safe.</strong> It's the only key to your backup — because we can't read your encrypted data, we can't recover it for you if the passphrase is lost.</div>
+  <div class="callout"><strong>Premium feature.</strong> Encrypted cloud backup &amp; sync is part of Premium — see <a href="pricing.html">pricing</a>.</div>
+
+  <h2 id="plans">19. Plans: Free vs Premium</h2>
+  <p>Remember Me is free to use, with an optional Premium upgrade when you want more space and the most powerful features.</p>
+  <ul>
+    <li><strong>Free:</strong> up to 100 memories, 15 AI recall questions/month, 3 document scans/month, plus all the core features.</li>
+    <li><strong>Premium — £2.99/month or £24.99/year (7-day free trial):</strong> unlimited memories, 300 AI questions/month, 50 document scans/month, encrypted cloud backup &amp; sync, and location reminders.</li>
+  </ul>
+  <p>The monthly allowances are gentle fair-use caps that reset each month, and nothing you've already saved is ever removed. Full details and a comparison table are on the <a href="pricing.html">pricing page</a>.</p>
+
+  <h2 id="appearance">20. Appearance &amp; signing out</h2>
   <p><strong>Appearance:</strong> Tap the half-circle icon in the chat header and choose <strong>System</strong> (follow your phone), <strong>Light</strong>, or <strong>Dark</strong>. Your choice is remembered.</p>
   <p><strong>Sign out:</strong> Tap <span class="chip">Sign Out</span> at the top right of the chat. Your saved memories remain safely stored for the next time you sign in.</p>
 
-  <h2 id="permissions">15. Permissions reference</h2>
+  <h2 id="permissions">21. Permissions reference</h2>
   <p>Remember Me only asks for a permission when you first use the feature that needs it. You can review or change any of these anytime in the iOS <strong>Settings</strong> app under Remember Me, or under <strong>Privacy &amp; Security</strong>.</p>
   <table>
     <tr><th>Permission</th><th>Used for</th><th>Needed?</th></tr>
@@ -220,12 +272,13 @@
     <tr><td>Photos</td><td>Attaching pictures from your library</td><td>Only for photos</td></tr>
     <tr><td>Notifications</td><td>Reminder alerts</td><td>For reminders</td></tr>
     <tr><td>Calendar</td><td>Importing and mirroring events</td><td>For calendar import</td></tr>
+    <tr><td>Location (Always)</td><td>Place-based reminders in the background</td><td>For location reminders</td></tr>
   </table>
 
-  <h2 id="privacy">16. Your privacy</h2>
-  <p>Your memories are encrypted on your device with AES-GCM, using a key held in your device Keychain, and stored in the app's private storage. Only the facts you save are kept; your recall questions and the assistant's replies stay in the current session. When you ask a question, a bounded set of your most relevant recent facts is sent to the AI service to compose the answer. Full details are in the <a href="privacy.html">Privacy Policy</a>.</p>
+  <h2 id="privacy">22. Your privacy</h2>
+  <p>Your memories are encrypted on your device with AES-GCM, using a key held in your device Keychain, and stored in the app's private storage. Only the facts you save are kept; your recall questions and the assistant's replies stay in the current session. When you ask a question, a bounded set of your most relevant recent facts is sent to the AI service to compose the answer. If you turn on cloud backup, your data is encrypted on your device with your passphrase <em>before</em> it's uploaded, so the server only ever holds unreadable ciphertext. Full details are in the <a href="privacy.html">Privacy Policy</a>.</p>
 
-  <h2 id="troubleshooting">17. Troubleshooting</h2>
+  <h2 id="troubleshooting">23. Troubleshooting</h2>
   <h3>I didn't get my verification email</h3>
   <p>Wait a few minutes and check your spam or junk folder. Still nothing? Tap <span class="chip">Resend Verification Email</span> on the verification screen, and confirm your address is spelled correctly.</p>
   <h3>Voice / dictation isn't working</h3>
@@ -244,7 +297,7 @@
   <a class="top-link" href="#top">↑ Back to top</a>
 </main>
 
-<footer>© 2026 Remember Me · <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
+<footer>© 2026 Remember Me · <a href="index.html">Home</a> · <a href="pricing.html">Pricing</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
 
 </body>
 </html>

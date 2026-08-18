@@ -62,14 +62,23 @@
   <p>When you ask a question, the app assembles a bounded set of your most relevant recent facts and sends them, along with your question, to a third-party AI service (Google's Gemini, accessed through Firebase) to compose a natural-language answer. This request is used solely to generate your answer and return it to you. Please refer to Google's privacy terms for how they handle data processed through their AI services. If you never ask recall questions, no memory content is sent for AI processing.</p>
 
   <h2>4. Backup and sync</h2>
-  <p>If you sign in and enable sync, your encrypted memories can be backed up so they are available across your devices. Data in transit is protected using standard transport encryption. You can disable sync or delete your account to stop this.</p>
+  <p>If you sign in and enable cloud backup (a Premium feature), your memories are encrypted on your device using a passphrase that only you hold, <em>before</em> anything is uploaded. The server only ever stores unreadable ciphertext and cannot decrypt your data. Because of this, if you lose your passphrase we cannot recover your backup for you. You can disable backup or delete your account to stop this.</p>
+
+  <h2>4a. Document scanning</h2>
+  <p>When you scan a document, the photograph is processed to extract the text and key facts you choose to save. This uses the same AI service described above and is subject to the same handling; the extracted facts are stored as encrypted memories, and only the memories you save are kept.</p>
+
+  <h2>4b. Subscriptions</h2>
+  <p>Premium subscriptions are processed by Apple through the App Store. We never receive or store your payment card details; Apple handles billing and shares only the subscription status needed to unlock Premium features.</p>
 
   <h2>5. Device permissions</h2>
   <ul>
     <li><strong>Face ID / Touch ID.</strong> Used to lock the app so only you can open it. Biometric data never leaves your device and is handled entirely by iOS.</li>
     <li><strong>Microphone &amp; Speech Recognition.</strong> Used only when you choose voice input.</li>
+    <li><strong>Camera.</strong> Used only when you take a photo or scan a document for a memory.</li>
     <li><strong>Photos.</strong> Accessed only when you attach an image to a memory.</li>
     <li><strong>Calendar.</strong> Accessed only if you choose to mirror a reminder to your Calendar.</li>
+    <li><strong>Location (Always).</strong> Used only if you create a location-based reminder, so the app can notify you when you reach a place you chose. You can turn this off at any time in iOS Settings.</li>
+    <li><strong>Notifications.</strong> Used to deliver reminder alerts.</li>
   </ul>
 
   <h2>6. What we do not do</h2>
@@ -92,7 +101,7 @@
   <p>Questions about this policy or your data? Email us at <a href="mailto:support@remembermeapp.online">support@remembermeapp.online</a>.</p>
 </main>
 
-<footer>© 2026 Remember Me · <a href="index.html">Home</a> · <a href="guide.html">Guide</a> · <a href="terms.html">Terms</a></footer>
+<footer>© 2026 Remember Me · <a href="index.html">Home</a> · <a href="guide.html">Guide</a> · <a href="pricing.html">Pricing</a> · <a href="terms.html">Terms</a></footer>
 
 </body>
 </html>

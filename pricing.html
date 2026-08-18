@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Remember Me</title>
+<meta name="description" content="Remember Me pricing: a generous free plan, and Premium at £2.99/month or £24.99/year with a 7-day free trial for unlimited memories, more AI recall, document scanning, encrypted backup and location reminders.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<style>
+  :root{--accent:#5b6cf0;--accent-dark:#4553d6;--green:#16a34a;--ink:#1a1c2b;--muted:#5c6076;--border:#e5e7f2;--soft:#f5f6fc}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.7;background:#fff}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  header.nav{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);z-index:20}
+  .nav-inner{max-width:960px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink)}
+  .brand:hover{text-decoration:none}
+  .logo{width:32px;height:32px;border-radius:9px;background:#fff;border:1px solid var(--border);display:grid;place-items:center}
+  .brain{width:84%;height:84%;object-fit:contain;display:block}
+  main{max-width:960px;margin:0 auto;padding:56px 24px 80px}
+  h1{font-size:2.4rem;font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:10px}
+  .lead{text-align:center;color:var(--muted);font-size:1.12rem;max-width:620px;margin:0 auto 40px}
+
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:760px;margin:0 auto}
+  @media(max-width:680px){.plans{grid-template-columns:1fr}}
+  .plan{border:1px solid var(--border);border-radius:18px;padding:30px 28px;background:#fff;display:flex;flex-direction:column}
+  .plan.featured{border:2px solid var(--green);box-shadow:0 16px 40px rgba(22,163,74,.12);position:relative}
+  .plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 14px;border-radius:20px}
+  .plan h2{font-size:1.3rem;font-weight:800;margin-bottom:4px}
+  .plan .who{color:var(--muted);font-size:.92rem;margin-bottom:18px;min-height:40px}
+  .price{font-size:2.6rem;font-weight:800;letter-spacing:-.02em;line-height:1}
+  .price small{font-size:1rem;font-weight:600;color:var(--muted)}
+  .price-sub{color:var(--muted);font-size:.9rem;margin-top:6px;min-height:22px}
+  .plan ul{list-style:none;margin:20px 0 24px;padding:0}
+  .plan li{padding:7px 0 7px 26px;position:relative;font-size:.96rem}
+  .plan li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+  .plan li.muted{color:var(--muted)}
+  .plan li.muted::before{content:"–";color:var(--muted)}
+  .btn{display:inline-block;text-align:center;padding:13px 22px;border-radius:12px;font-weight:700;font-size:.98rem;margin-top:auto}
+  .btn.primary{background:var(--green);color:#fff}
+  .btn.primary:hover{background:#128a3e;text-decoration:none}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
+  .btn.ghost:hover{border-color:var(--accent);background:var(--soft);text-decoration:none}
+
+  .note{max-width:680px;margin:22px auto 0;text-align:center;color:var(--muted);font-size:.86rem}
+
+  h2.section{font-size:1.6rem;font-weight:800;text-align:center;margin:64px 0 10px;letter-spacing:-.01em}
+  p.section-lead{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 28px}
+
+  .cmp{max-width:760px;margin:0 auto;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+  table{width:100%;border-collapse:collapse;font-size:.96rem}
+  th,td{padding:13px 16px;border-bottom:1px solid var(--border);text-align:left}
+  thead th{background:var(--soft);font-weight:700}
+  th.col,td.col{text-align:center;width:120px}
+  tbody tr:last-child td{border-bottom:none}
+  td.col .y{color:var(--green);font-weight:800}
+  td.col .n{color:var(--muted)}
+  caption{caption-side:bottom;padding:12px 16px;color:var(--muted);font-size:.82rem;text-align:left}
+
+  .callout{max-width:760px;margin:28px auto 0;background:var(--soft);border:1px solid var(--border);border-radius:14px;padding:22px 24px}
+  .callout h3{font-size:1.05rem;margin-bottom:6px}
+  .callout p{color:#33364a;font-size:.96rem;margin-bottom:10px}
+  .callout p:last-child{margin-bottom:0}
+
+  .faq{max-width:760px;margin:16px auto 0}
+  details{background:#fff;border:1px solid var(--border);border-radius:12px;padding:0 22px;margin-bottom:12px}
+  details summary{cursor:pointer;font-weight:600;padding:18px 0;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";font-size:1.4rem;color:var(--accent)}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);padding:0 0 20px;font-size:.96rem}
+
+  footer{border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:.85rem;padding:28px;margin-top:64px}
+  footer a{color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="logo"><img class="brain" src="assets/logo.png" alt="Remember Me brain logo"></span> Remember Me</a>
+    <a href="index.html" style="color:var(--muted);font-weight:500">← Back to home</a>
+  </div>
+</header>
+
+<main>
+  <h1>Simple pricing. Start free.</h1>
+  <p class="lead">Use Remember Me free for as long as you like. Upgrade to Premium only when you want unlimited space and the most powerful features.</p>
+
+  <div class="plans">
+    <div class="plan">
+      <h2>Free</h2>
+      <p class="who">Everything you need to capture and recall the essentials.</p>
+      <div class="price">£0</div>
+      <div class="price-sub">Free forever — no card required</div>
+      <ul>
+        <li>Up to <strong>100 memories</strong></li>
+        <li><strong>15</strong> AI recall questions / month</li>
+        <li><strong>3</strong> document scans / month</li>
+        <li>Voice input &amp; spoken replies</li>
+        <li>Photos, reminders &amp; calendar sync</li>
+        <li>Automatic categorisation</li>
+        <li>Siri, Shortcuts &amp; home-screen widget</li>
+        <li>Face ID lock &amp; on-device encryption</li>
+      </ul>
+      <a class="btn ghost" href="guide.html">How it works</a>
+    </div>
+
+    <div class="plan featured">
+      <span class="tag">7-day free trial</span>
+      <h2>Premium</h2>
+      <p class="who">For people who want to remember everything, with no limits.</p>
+      <div class="price">£2.99<small> / month</small></div>
+      <div class="price-sub">or <strong>£24.99 / year</strong> — save ~30%</div>
+      <ul>
+        <li><strong>Everything in Free</strong>, plus:</li>
+        <li><strong>Unlimited</strong> memories</li>
+        <li><strong>300</strong> AI recall questions / month</li>
+        <li><strong>50</strong> document scans / month</li>
+        <li>Encrypted <strong>cloud backup &amp; sync</strong></li>
+        <li><strong>Location-based</strong> reminders</li>
+      </ul>
+      <a class="btn primary" href="guide.html#account">Start free trial</a>
+    </div>
+  </div>
+  <p class="note">Premium is an auto-renewing subscription purchased through the App Store. The 7-day free trial converts to a paid subscription unless cancelled at least 24 hours before it ends. Manage or cancel anytime in your iPhone's Settings.</p>
+
+  <!-- COMPARISON -->
+  <h2 class="section">Compare plans</h2>
+  <p class="section-lead">The full breakdown of what's included on each plan.</p>
+  <div class="cmp">
+    <table>
+      <thead>
+        <tr><th>Feature</th><th class="col">Free</th><th class="col">Premium</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Stored memories</td><td class="col">100</td><td class="col"><span class="y">Unlimited</span></td></tr>
+        <tr><td>AI recall questions</td><td class="col">15 / mo</td><td class="col">300 / mo</td></tr>
+        <tr><td>Document scanning</td><td class="col">3 / mo</td><td class="col">50 / mo</td></tr>
+        <tr><td>Voice input &amp; spoken replies</td><td class="col"><span class="y">✓</span></td><td class="col"><span class="y">✓</span></td></tr>
+        <tr><td>Photos on memories</td><td class="col"><span class="y">✓</span></td><td class="col"><span class="y">✓</span></td></tr>
+        <tr><td>Reminders, lead times &amp; calendar sync</td><td class="col"><span class="y">✓</span></td><td class="col"><span class="y">✓</span></td></tr>
+        <tr><td>Automatic categorisation</td><td class="col"><span class="y">✓</span></td><td class="col"><span class="y">✓</span></td></tr>
+        <tr><td>Siri, Shortcuts &amp; widget</td><td class="col"><span class="y">✓</span></td><td class="col"><span class="y">✓</span></td></tr>
+        <tr><td>Face ID lock &amp; on-device encryption</td><td class="col"><span class="y">✓</span></td><td class="col"><span class="y">✓</span></td></tr>
+        <tr><td>Encrypted cloud backup &amp; sync</td><td class="col"><span class="n">—</span></td><td class="col"><span class="y">✓</span></td></tr>
+        <tr><td>Location-based reminders</td><td class="col"><span class="n">—</span></td><td class="col"><span class="y">✓</span></td></tr>
+      </tbody>
+      <caption>Monthly allowances reset on the 1st of each month. All prices in GBP and include applicable taxes; the App Store shows your local currency at checkout.</caption>
+    </table>
+  </div>
+
+  <div class="callout">
+    <h3>How the limits work</h3>
+    <p>The monthly allowances are <strong>fair-use soft caps</strong>, not hard walls. If you reach the AI recall limit, the app quietly falls back to answering from your saved facts on-device instead of blocking you, and your counter resets at the start of the next month.</p>
+    <p>The 100-memory limit on Free applies only to <strong>creating new</strong> memories — nothing you've already saved is ever deleted or hidden, and everything stays fully readable. Upgrade to Premium and the cap simply lifts.</p>
+  </div>
+
+  <!-- BILLING FAQ -->
+  <h2 class="section">Billing questions</h2>
+  <div class="faq">
+    <details><summary>Do I need to pay to try Remember Me?</summary><p>No. The Free plan is genuinely free forever and needs no card. You only pay if you choose to upgrade to Premium.</p></details>
+    <details><summary>How does the free trial work?</summary><p>Premium starts with a 7-day free trial. You won't be charged during the trial, and you can cancel any time before it ends to avoid being billed. If you don't cancel, it automatically continues at £2.99/month (or £24.99/year if you chose annual).</p></details>
+    <details><summary>How do I subscribe, and how am I billed?</summary><p>You upgrade inside the app. Payment is handled securely by Apple through your App Store account — we never see your card details. Subscriptions renew automatically until cancelled.</p></details>
+    <details><summary>How do I cancel?</summary><p>Open your iPhone's <strong>Settings → your name → Subscriptions</strong>, select Remember Me, and tap Cancel. You'll keep Premium until the end of the period you've already paid for. Cancelling is entirely in your control through Apple.</p></details>
+    <details><summary>What happens to my data if I downgrade?</summary><p>Nothing is lost. All your existing memories stay on your device and remain readable. You simply return to the Free limits for creating new memories and using AI features, and Premium-only features (cloud backup, location reminders) pause until you upgrade again.</p></details>
+    <details><summary>Can I switch between monthly and annual?</summary><p>Yes — change your plan anytime from the Subscriptions screen in iPhone Settings. Annual works out around 30% cheaper than paying monthly.</p></details>
+    <details><summary>I already paid — how do I restore it on a new phone?</summary><p>In the app's upgrade screen, tap <strong>Restore Purchases</strong>. As long as you're signed into the same Apple ID, your Premium will be restored.</p></details>
+    <details><summary>Still have a question?</summary><p>Email us at <a href="mailto:support@remembermeapp.online">support@remembermeapp.online</a> and we'll help.</p></details>
+  </div>
+</main>
+
+<footer>© 2026 Remember Me · <a href="index.html">Home</a> · <a href="guide.html">Guide</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></footer>
+
+</body>
+</html>
