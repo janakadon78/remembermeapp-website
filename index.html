@@ -87,6 +87,7 @@
   .bubble{padding:11px 15px;border-radius:16px;margin:8px 0;font-size:.95rem;max-width:80%}
   .bubble.me{background:var(--accent);color:#fff;margin-left:auto;border-bottom-right-radius:5px}
   .bubble.ai{background:var(--soft2);color:var(--ink);border-bottom-left-radius:5px}
+  .bubble .breakdown{font-size:.86rem;color:var(--muted);line-height:1.5;display:inline-block;margin-top:4px}
 
   /* Sections */
   h2.section-title{font-size:2rem;font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:12px}
@@ -174,9 +175,13 @@
     <div class="demo">
       <div class="chat">
         <div class="bubble me">My passport is in the top drawer of the desk</div>
-        <div class="bubble ai">Got it — memory saved. You can recall it anytime.</div>
-        <div class="bubble me">Where's my passport?</div>
-        <div class="bubble ai">It's in the top drawer of your desk.</div>
+        <div class="bubble ai">Got it — saved. Ask me anytime.</div>
+        <div class="bubble me">Paid £420 on car tyres today</div>
+        <div class="bubble ai">Saved that too. 🚗</div>
+        <div class="bubble me">How much have I spent on my car this year?</div>
+        <div class="bubble ai"><strong>£1,190 so far this year:</strong><br><span class="breakdown">Tyres — £420 (12 Aug)<br>Service — £350 (3 May)<br>Battery — £420 (18 Feb)</span></div>
+        <div class="bubble me">When did I last replace the tyres?</div>
+        <div class="bubble ai">12 August — you spent £420 on car tyres.</div>
       </div>
     </div>
   </div>
@@ -189,17 +194,20 @@
     <p class="section-lead">A memory assistant that's fast, private, and genuinely helpful in everyday moments.</p>
     <div class="grid">
       <div class="card"><span class="ic">🗣️</span><h3>Speak or type</h3><p>Tell it a fact in plain language, or dictate hands-free. Remember Me knows the difference between storing something and asking for it.</p></div>
-      <div class="card"><span class="ic">⚡</span><h3>Instant recall</h3><p>Ask a natural question and get a short, warm answer drawn from what you've saved — powered by on-device matching and AI.</p></div>
+      <div class="card"><span class="ic">⚡</span><h3>Instant recall</h3><p>Ask a natural question and get a short, warm answer drawn from what you've saved — and it even tells you when you saved it.</p></div>
+      <div class="card"><span class="ic">📊</span><h3>Ask your data</h3><p>Go beyond simple recall: "How much have I spent on my car this year?" or "When did I last replace the tyres?" Get a computed total or date with an itemised breakdown — from figures you actually saved.</p></div>
       <div class="card"><span class="ic">📄</span><h3>Scan any document</h3><p>Photograph a passport, warranty, or bill and the app pulls out the key facts and any expiry date — then offers a reminder before it lapses.</p></div>
       <div class="card"><span class="ic">🏷️</span><h3>Auto-organised</h3><p>Every memory is sorted for you by category (Home, Vehicle, Work, Money…) and type (Location, Password, Appointment…). Free uses fast on-device rules; Premium adds AI-powered categorisation for the nuanced cases.</p></div>
       <div class="card"><span class="ic">🖼️</span><h3>Remember with photos</h3><p>Attach images to a memory — a parking level, a serial number, a label — and recall it visually later.</p></div>
       <div class="card"><span class="ic">⏰</span><h3>Reminders &amp; events</h3><p>Turn a memory into a reminder with flexible lead times, and mirror events to your iPhone Calendar so nothing slips.</p></div>
+      <div class="card"><span class="ic">💬</span><h3>Just say when</h3><p>Type reminders in plain English — "remind me to service the car every 6 months" or "bins out every Tuesday" — and Remember Me sets the date, lead times and repeats for you.</p></div>
       <div class="card"><span class="ic">📍</span><h3>Location reminders <span class="pro">Premium</span></h3><p>"Remind me at the supermarket." Get a nudge the moment you arrive at — or leave — a place you choose.</p></div>
       <div class="card"><span class="ic">🎙️</span><h3>Hey Siri, remember…</h3><p>Save a memory hands-free with Siri, the Shortcuts app, or Spotlight — without even opening Remember Me.</p></div>
       <div class="card"><span class="ic">📲</span><h3>Home-screen widget</h3><p>A glanceable widget with your latest counts and upcoming reminders — and never any of your private text.</p></div>
       <div class="card"><span class="ic">🔐</span><h3>Locked to you</h3><p>The app re-locks behind Face ID or Touch ID every time it goes to the background. Your memories stay yours.</p></div>
       <div class="card"><span class="ic">☁️</span><h3>Encrypted cloud backup <span class="pro">Premium</span></h3><p>Back up and sync across devices with a passphrase only you know. The server only ever stores unreadable ciphertext.</p></div>
       <div class="card"><span class="ic">✈️</span><h3>Works offline</h3><p>Saving memories and browsing everything you've stored works with no connection — recall answers just need the internet.</p></div>
+      <div class="card"><span class="ic">📤</span><h3>Your data is yours</h3><p>Export everything to a plain JSON file whenever you like, and permanently delete your account and all data in a couple of taps. No lock-in, ever.</p></div>
     </div>
     <p style="text-align:center;margin-top:36px"><a class="btn" href="pricing.html">See Free vs Premium pricing →</a></p>
   </div>
@@ -244,6 +252,7 @@
     <div class="faq">
       <details><summary>What kinds of things can I store?</summary><p>Anything you'd otherwise scribble on a note: where you put items, passwords and codes, parking spots, package tracking, gift ideas, a doctor's instructions. If you can say it in a sentence, Remember Me can hold onto it.</p></details>
       <details><summary>How does it know whether I'm storing or asking?</summary><p>Remember Me decides your intent on-device. A statement ("My keys are on the table") is saved and confirmed instantly. A question ("Where are my keys?") is answered from your saved facts. That means the confirmation you see always matches what was actually stored.</p></details>
+      <details><summary>Can it answer questions like "how much have I spent on my car?"</summary><p>Yes. As long as you've saved the individual facts (each purchase, with its amount), you can ask analytical questions — running totals, counts, or "when did I last…" — and Remember Me computes the answer with an itemised breakdown. It only ever uses the figures and dates you actually saved, and never invents numbers.</p></details>
       <details><summary>Is my data really private?</summary><p>Yes. Your memories are encrypted with AES-GCM using a key stored in the device Keychain and kept in the app's private storage. Only the facts you save are persisted; your recall questions and the assistant's replies stay in the current session. See the <a href="privacy.html">Privacy Policy</a> for details.</p></details>
       <details><summary>Does recall work offline?</summary><p>Storing memories and on-device matching work offline. Composing a natural-language recall answer uses an AI service, which needs a connection. When you're offline you can still see your saved facts.</p></details>
       <details><summary>Can I use voice?</summary><p>Yes. Tap the microphone to dictate a memory or ask a question hands-free, and the app can read answers back to you aloud.</p></details>

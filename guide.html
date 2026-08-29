@@ -73,6 +73,7 @@
       <li><a href="#chat">The chat screen</a></li>
       <li><a href="#saving">Saving a memory</a></li>
       <li><a href="#recalling">Recalling a memory</a></li>
+      <li><a href="#analysis">Ask your data (totals &amp; trends)</a></li>
       <li><a href="#voice">Using your voice</a></li>
       <li><a href="#photos">Adding photos</a></li>
       <li><a href="#editing">Editing &amp; deleting</a></li>
@@ -85,7 +86,7 @@
       <li><a href="#handsfree">Siri, Shortcuts &amp; widget</a></li>
       <li><a href="#backup">Encrypted cloud backup</a></li>
       <li><a href="#plans">Plans: Free vs Premium</a></li>
-      <li><a href="#appearance">Appearance &amp; sign out</a></li>
+      <li><a href="#appearance">Settings, export &amp; account</a></li>
       <li><a href="#permissions">Permissions reference</a></li>
       <li><a href="#privacy">Your privacy</a></li>
       <li><a href="#troubleshooting">Troubleshooting</a></li>
@@ -153,8 +154,17 @@
     <li>"What level did I park on?"</li>
     <li>"What's the Wi-Fi password?"</li>
   </ul>
-  <p>You'll briefly see <em>"Thinking…"</em> while the app finds the most relevant facts you've saved and composes a short, warm answer. You don't have to phrase questions exactly the way you saved them — asking about your "travel documents" can still surface the passport you filed away.</p>
+  <p>You'll briefly see <em>"Thinking…"</em> while the app finds the most relevant facts you've saved and composes a short, warm answer. You don't have to phrase questions exactly the way you saved them — asking about your "travel documents" can still surface the passport you filed away. Recall answers also tell you <strong>when you saved</strong> the fact, so you always have the context.</p>
   <div class="callout"><strong>Tip:</strong> The more specific your saved facts, the sharper the recall. "Spare key is under the blue plant pot by the back door" beats "spare key outside."</div>
+
+  <h3 id="analysis">Ask your data — totals, counts &amp; trends</h3>
+  <p>Remember Me can do more than fetch a single fact — it can <strong>work things out across everything you've saved</strong>. As long as you've stored the individual facts (each with its amount or date), you can ask:</p>
+  <ul>
+    <li><strong>Totals:</strong> "How much have I spent on my car this year?"</li>
+    <li><strong>Counts:</strong> "How many times have I been to the dentist?"</li>
+    <li><strong>Timelines:</strong> "When did I last replace the tyres?" or "What's the most recent thing I bought for the house?"</li>
+  </ul>
+  <p>You'll get a clear headline (a total with its period, or the date) followed by an itemised breakdown — for example, <em>"£1,190 so far this year: Tyres — £420, Service — £350, Battery — £420."</em> It only ever uses the numbers and dates you actually saved, and never makes figures up. So the trick is simple: whenever you spend on something you might want to track, just tell Remember Me — <em>"Paid £420 on car tyres today"</em> — and the totals take care of themselves.</p>
 
   <h2 id="voice">8. Using your voice</h2>
   <p>You can speak instead of type, and have answers read back to you.</p>
@@ -163,6 +173,8 @@
     <li><strong>Spoken replies:</strong> Recall answers can be read aloud automatically. To silence the current spoken reply, tap the <strong>speaker</strong> (mute) button.</li>
   </ul>
   <p>The first time you use voice, iOS asks permission for the microphone and speech recognition — tap <strong>Allow</strong>. See the <a href="#permissions">permissions reference</a> if you need to change this later.</p>
+  <h3 id="voicesettings">Voice settings</h3>
+  <p>In the app's voice settings you can turn <strong>Read answers aloud</strong> on or off, and pick which <strong>voice</strong> is used for spoken replies (or leave it on "Automatic" for the best available). Want a richer voice? Download more under <strong>iOS Settings › Accessibility › Spoken Content › Voices</strong>, then reopen the screen to choose one.</p>
 
   <h2 id="photos">9. Adding photos</h2>
   <p>Some memories are easier to keep as pictures — a parking level sign, a serial-number label, where you left something. You can attach up to <strong>five photos</strong> to a memory.</p>
@@ -203,6 +215,14 @@
   </ol>
   <div class="callout"><strong>Reminders from memories:</strong> A reminder created from a saved memory shows a <strong>link</strong> icon; a standalone reminder shows a <strong>bell</strong>. Tap any reminder to edit it later.</div>
   <p>The first time you save a reminder, iOS asks permission to send notifications — tap <strong>Allow</strong>, or you won't receive alerts.</p>
+  <h3 id="nlreminders">Just type it in plain English</h3>
+  <p>You don't have to fill in the form field by field. Type a reminder the way you'd say it and Remember Me works out the details for you — the date, the lead times, and whether it repeats:</p>
+  <ul>
+    <li>"Remind me to service the car <strong>every 6 months</strong>"</li>
+    <li>"Put the <strong>bins out every Tuesday</strong>"</li>
+    <li>"Dentist <strong>tomorrow at 5pm</strong>, remind me a day before"</li>
+  </ul>
+  <p>Recurring reminders (<strong>daily, weekly, or monthly</strong>) keep coming back on schedule, so recurring chores and renewals only need setting up once.</p>
 
   <h2 id="import">13. Importing calendar events</h2>
   <p>You can pull events you already have on your iPhone — including <strong>Outlook / Exchange</strong> accounts you've added in iOS Settings — into Remember Me so they get reminders too.</p>
@@ -259,9 +279,13 @@
   </ul>
   <p>The monthly allowances are gentle fair-use caps that reset each month, and nothing you've already saved is ever removed. Full details and a comparison table are on the <a href="pricing.html">pricing page</a>.</p>
 
-  <h2 id="appearance">20. Appearance &amp; signing out</h2>
+  <h2 id="appearance">20. Settings &amp; your account</h2>
   <p><strong>Appearance:</strong> Tap the half-circle icon in the chat header and choose <strong>System</strong> (follow your phone), <strong>Light</strong>, or <strong>Dark</strong>. Your choice is remembered.</p>
   <p><strong>Sign out:</strong> Tap <span class="chip">Sign Out</span> at the top right of the chat. Your saved memories remain safely stored for the next time you sign in.</p>
+  <h3 id="export">Export your data</h3>
+  <p>Your data is yours to take with you. Use <strong>Export</strong> to save all your memories and reminders to a plain <strong>JSON file</strong> you can keep, back up, or open elsewhere — no lock-in. The export includes each memory's text, category, type, and dates.</p>
+  <h3 id="delete">Delete your account</h3>
+  <p>You can permanently delete your account and everything with it at any time from <strong>Account settings → Delete account</strong>. This removes your login, all memories and reminders, and any cloud backup — it can't be undone, so you'll be asked to confirm (and to re-enter your password if you signed in a while ago).</p>
 
   <h2 id="permissions">21. Permissions reference</h2>
   <p>Remember Me only asks for a permission when you first use the feature that needs it. You can review or change any of these anytime in the iOS <strong>Settings</strong> app under Remember Me, or under <strong>Privacy &amp; Security</strong>.</p>
